@@ -15,10 +15,13 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render only the registration form and its title', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, actividad_sem10');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Registro de personas');
+    expect(compiled.querySelectorAll('form')).toHaveLength(1);
+    expect(compiled.querySelectorAll('input')).toHaveLength(5);
+    expect(compiled.querySelector('ul')).toBeNull();
   });
 });

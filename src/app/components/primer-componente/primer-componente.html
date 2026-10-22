@@ -1,0 +1,89 @@
+<main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+  <section class="registro-panel w-100" aria-labelledby="page-title">
+    <h1 id="page-title" class="text-center mb-4">Registro de personas</h1>
+
+    <form class="row g-3" novalidate (submit)="guardar($event)">
+      <div class="col-md-6">
+        <label class="form-label" for="nombre">Nombre</label>
+        <input
+          class="form-control"
+          id="nombre"
+          type="text"
+          autocomplete="given-name"
+          placeholder="Ej. Lucía"
+          maxlength="60"
+          required
+          [value]="datos().nombre"
+          (input)="actualizarCampo('nombre', $event)"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="apellido">Apellido</label>
+        <input
+          class="form-control"
+          id="apellido"
+          type="text"
+          autocomplete="family-name"
+          placeholder="Ej. Romero"
+          maxlength="60"
+          required
+          [value]="datos().apellido"
+          (input)="actualizarCampo('apellido', $event)"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label" for="edad">Edad</label>
+        <input
+          class="form-control"
+          id="edad"
+          type="number"
+          inputmode="numeric"
+          placeholder="25"
+          min="1"
+          max="120"
+          step="1"
+          required
+          [value]="datos().edad"
+          (input)="actualizarCampo('edad', $event)"
+        />
+      </div>
+
+      <div class="col-md-8">
+        <label class="form-label" for="ciudad">Ciudad</label>
+        <input
+          class="form-control"
+          id="ciudad"
+          type="text"
+          autocomplete="address-level2"
+          placeholder="Ej. Guadalajara"
+          maxlength="80"
+          required
+          [value]="datos().ciudad"
+          (input)="actualizarCampo('ciudad', $event)"
+        />
+      </div>
+
+      <div class="col-12">
+        <label class="form-label" for="correo">Correo electrónico</label>
+        <input
+          class="form-control"
+          id="correo"
+          name="correo"
+          type="email"
+          autocomplete="email"
+          placeholder="lucia@ejemplo.com"
+          maxlength="254"
+          required
+          [value]="datos().correo"
+          (input)="actualizarCampo('correo', $event)"
+        />
+      </div>
+
+      <div class="col-12 pt-2">
+        <button class="btn btn-success w-100" type="submit">Guardar registro</button>
+      </div>
+    </form>
+  </section>
+</main>
